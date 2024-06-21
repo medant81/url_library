@@ -17,6 +17,8 @@ services:
         max-file: "3"
     ports:
       - "5434:5432"
+    healthcheck:
+      test: "pg_isready --username=admin && psql --username=admin --list"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -25,21 +27,20 @@ services:
     networks:
       - new
     volumes:
-      - ./db/migration:/migrations
-      - ./wait-for-it.sh:/wait-for-it.sh
-    entrypoint: [ "/bin/sh", "/wait-for-it.sh" ]
+      - ./schema:/schema
     command:
       [
         "migrate",
         "-path",
-        "/migrations",
+        "/schema",
         "-database",
         "postgres://postgres:postgres@postgres:5432/url_library?sslmode=disable",
         "up",
         "3",
       ]
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
   app:
     build:
