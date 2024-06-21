@@ -9,6 +9,7 @@ create table authors
     birthday   date
 );
 
+
 alter table authors
     owner to admin;
 
