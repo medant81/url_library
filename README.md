@@ -51,21 +51,21 @@ make stop
 ```
 
 # Как использовать
-После установки и запуска доступ по адресу <b><a href="localhost:3000">localhost:3000</a></b>  
+После установки и запуска доступ по адресу <b>[localhost:3000](localhost:3000)</b>  
 
 Реализованы следующие RESTful эндпоинты:
-- <a href="localhost:3000">localhost:3000</a> Сведения о текущей версии
-- Post <a href="localhost:3000/books">localhost:3000/books</a> Добавить книгу
-- Get <a href="localhost:3000/books">localhost:3000/books</a> Получить список всех книг
-- Get <a href="localhost:3000/books/{id}">localhost:3000/books/{id}</a> Получить книгу по ее идентификатору
-- Put <a href="localhost:3000/books/{id}">localhost:3000/books/{id}</a> Обновить книгу по ее идентификатору
-- Delete <a href="localhost:3000/books/{id}">localhost:3000/books/{id}</a> Удалить книгу
-- Post <a href="localhost:3000/authors">localhost:3000/authors</a> Добавить автора
-- Get <a href="localhost:3000/authors">localhost:3000/authors</a> Получить список всех авторов
-- Get <a href="localhost:3000/authors/{id}">localhost:3000/authors/{id}</a> Получить автора по его идентификатору
-- Put <a href="localhost:3000/authors/{id}">localhost:3000/authors/{id}</a> Обновить автора по его идентификатору
-- Delete <a href="localhost:3000/authors/{id}">localhost:3000/authors/{id}</a> Удалить автора
-- Put <a href="localhost:3000/books/{book_id}/authors/{author_id}">localhost:3000/books/{book_id}/authors/{author_id}</a> Обновить сведения о книге и авторе
+- [localhost:3000](localhost:3000) Сведения о текущей версии
+- Post [localhost:3000/books](localhost:3000/books) Добавить книгу
+- Get [localhost:3000/books](localhost:3000/books) Получить список всех книг
+- Get [localhost:3000/books/{id}](localhost:3000/books/{id}) Получить книгу по ее идентификатору
+- Put [localhost:3000/books/{id}](localhost:3000/books/{id}) Обновить книгу по ее идентификатору
+- Delete [localhost:3000/books/{id}](localhost:3000/books/{id}) Удалить книгу
+- Post [localhost:3000/authors](localhost:3000/authors) Добавить автора
+- Get [localhost:3000/authors](localhost:3000/authors) Получить список всех авторов
+- Get [localhost:3000/authors/{id}](localhost:3000/authors/{id}) Получить автора по его идентификатору
+- Put [localhost:3000/authors/{id}](localhost:3000/authors/{id}) Обновить автора по его идентификатору
+- Delete [localhost:3000/authors/{id}](localhost:3000/authors/{id}) Удалить автора
+- Put [localhost:3000/books/{book_id}/authors/{author_id}](localhost:3000/books/{book_id}/authors/{author_id}) Обновить сведения о книге и авторе
 
-Подробное описание методов доступно по адресу <a href="localhost:3000/swagger/index.html">localhost:3000/swagger/index.html</a>
+Подробное описание методов доступно по адресу [localhost:3000/swagger/index.html](localhost:3000/swagger/index.html)
 после запуска сервиса
