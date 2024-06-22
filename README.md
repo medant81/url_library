@@ -67,5 +67,5 @@ make stop
 - Delete [localhost:3000/authors/{id}](localhost:3000/authors/{id}) Удалить автора
 - Put [localhost:3000/books/{book_id}/authors/{author_id}](localhost:3000/books/{book_id}/authors/{author_id}) Обновить сведения о книге и авторе
 
-Подробное описание методов доступно по адресу [localhost:3000/swagger/index.html](localhost:3000/swagger/index.html)
+Подробное описание методов доступно по адресу [localhost:3000/swagger/index.html](http://localhost:3000/swagger/index.html)
 после запуска сервиса
