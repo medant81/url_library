@@ -6,10 +6,10 @@ import (
 	"github.com/jackc/pgconn"
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/medant81/url_library/internal/config"
+	"github.com/medant81/url_library/utils"
 	"log/slog"
 	"time"
-	"url_library/internal/config"
-	"url_library/utils"
 )
 
 type Client interface {

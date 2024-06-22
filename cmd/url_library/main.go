@@ -2,15 +2,15 @@ package main
 
 import (
 	"context"
+	"github.com/medant81/url_library/internal/author"
+	"github.com/medant81/url_library/internal/book"
+	"github.com/medant81/url_library/internal/config"
+	"github.com/medant81/url_library/internal/handlers"
+	"github.com/medant81/url_library/internal/storage/postgre"
+	"github.com/medant81/url_library/version"
 	"log/slog"
 	"net/http"
 	"os"
-	"url_library/internal/author"
-	"url_library/internal/book"
-	"url_library/internal/config"
-	"url_library/internal/handlers"
-	"url_library/internal/storage/postgre"
-	"url_library/version"
 )
 
 const (
@@ -19,6 +19,12 @@ const (
 	envProd  = "prod"
 )
 
+// @title url_library App API
+// @version 1.0
+// @description API Server for url_library Application
+
+// @host localhost:3000
+// @BasePath /
 func main() {
 
 	os.Setenv("CONFIG_PATH", "./config/local.yaml")

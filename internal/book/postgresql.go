@@ -6,10 +6,10 @@ import (
 	"errors"
 	"fmt"
 	"github.com/jackc/pgconn"
+	"github.com/medant81/url_library/utils"
 	"log/slog"
-	"url_library/utils"
 
-	"url_library/internal/storage/postgre"
+	"github.com/medant81/url_library/internal/storage/postgre"
 )
 
 type repository struct {

@@ -3,6 +3,8 @@ package handlers
 import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	_ "github.com/medant81/url_library/docs"
+	httpSwagger "github.com/swaggo/http-swagger/v2"
 	"net/http"
 )
 
@@ -21,5 +23,8 @@ func Routers(app *Application) http.Handler {
 	mux.Put("/authors/{id}", app.UpdateAuthor)
 	mux.Delete("/authors/{id}", app.DelAuthor)
 	mux.Put("/books/{book_id}/authors/{author_id}", app.UpdateBookWithAuthor)
+	mux.Get("/swagger/*", httpSwagger.Handler(
+		httpSwagger.URL("http://localhost:3000/swagger/doc.json"), //The url pointing to API definition
+	))
 	return mux
 }

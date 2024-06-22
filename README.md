@@ -66,3 +66,6 @@ make stop
 - Put <a href="localhost:3000/authors/{id}">localhost:3000/authors/{id}</a> Обновить автора по его идентификатору
 - Delete <a href="localhost:3000/authors/{id}">localhost:3000/authors/{id}</a> Удалить автора
 - Put <a href="localhost:3000/books/{book_id}/authors/{author_id}">localhost:3000/books/{book_id}/authors/{author_id}</a> Обновить сведения о книге и авторе
+
+Подробное описание методов доступно по адресу <a href="localhost:3000/swagger/index.html">localhost:3000/swagger/index.html</a>
+после запуска сервиса

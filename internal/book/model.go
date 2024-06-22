@@ -1,6 +1,6 @@
 package book
 
-import "url_library/internal/author"
+import "github.com/medant81/url_library/internal/author"
 
 type Book struct {
 	Id     int           `json:"id"`

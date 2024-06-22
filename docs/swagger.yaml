@@ -1,0 +1,408 @@
+basePath: /
+definitions:
+  author.Author:
+    properties:
+      biography:
+        type: string
+      birthday:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+    type: object
+  book.Book:
+    properties:
+      author:
+        $ref: '#/definitions/author.Author'
+      id:
+        type: integer
+      isbn:
+        type: string
+      name:
+        type: string
+      year:
+        type: integer
+    type: object
+  handlers.JSONResponse:
+    properties:
+      data: {}
+      error:
+        type: boolean
+      message:
+        type: string
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  description: API Server for url_library Application
+  title: url_library App API
+  version: "1.0"
+paths:
+  /authors:
+    get:
+      consumes:
+      - application/json
+      description: get all authors
+      operationId: get-authors
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/author.Author'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Get all authors
+      tags:
+      - authors
+    post:
+      consumes:
+      - application/json
+      description: create author
+      operationId: create-author
+      parameters:
+      - description: author info
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/author.Author'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Create author
+      tags:
+      - authors
+  /authors/:id:
+    delete:
+      consumes:
+      - application/json
+      description: delete author
+      operationId: delete-author
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Delete author
+      tags:
+      - authors
+    get:
+      consumes:
+      - application/json
+      description: get author
+      operationId: get-author
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/author.Author'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Get author
+      tags:
+      - authors
+    put:
+      consumes:
+      - application/json
+      description: update author
+      operationId: update-author
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/author.Author'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Update author
+      tags:
+      - authors
+  /books:
+    get:
+      consumes:
+      - application/json
+      description: get all books
+      operationId: get-books
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/book.Book'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Get all books
+      tags:
+      - books
+    post:
+      consumes:
+      - application/json
+      description: create book
+      operationId: create-book
+      parameters:
+      - description: book info
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/book.Book'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Create book
+      tags:
+      - books
+  /books/:id:
+    delete:
+      consumes:
+      - application/json
+      description: delete book
+      operationId: delete-book
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Delete book
+      tags:
+      - books
+    get:
+      consumes:
+      - application/json
+      description: get book
+      operationId: get-book
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/book.Book'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Get book
+      tags:
+      - books
+    put:
+      consumes:
+      - application/json
+      description: update book
+      operationId: update-book
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/book.Book'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Update book
+      tags:
+      - books
+  /books/:id_book/authors/:id_athor:
+    put:
+      consumes:
+      - application/json
+      description: update book with author
+      operationId: update-book-author
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/book.Book'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/handlers.JSONResponse'
+      summary: Update book with author
+      tags:
+      - books
+swagger: "2.0"
