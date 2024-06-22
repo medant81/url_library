@@ -1,7 +1,9 @@
 DOCKER_COMPOSE=docker_compose.yaml
 ENV=.env
 
-.PHONY: build up down ps version logs stop
+.PHONY: run build up down ps version logs stop
+
+run: build up logs
 
 build:
 	docker-compose --file $(DOCKER_COMPOSE) --env-file $(ENV) build
