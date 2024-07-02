@@ -1,0 +1,12 @@
+env: "local" # local dev prod
+storage_path: "./storage/storage.db"
+http_server:
+  address: ":3000"
+  timeout: 4s
+  idle_timeout: 60s
+storage:
+  host: localhost #postgres #localhost
+  port: 5434 #5432
+  database: library
+  username: admin
+  password: admin

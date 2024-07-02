@@ -9,7 +9,6 @@ create table authors
     birthday   date
 );
 
-
 alter table authors
     owner to admin;
 
@@ -50,8 +49,8 @@ create or replace function trigger_set_timestamp() returns trigger
 as
 $$
 BEGIN
-  --NEW.updated_at = clock_timestamp();
-RETURN NEW;
+    NEW.updated_at = clock_timestamp();
+    RETURN NEW;
 END;
 $$
 ;
@@ -63,5 +62,4 @@ create trigger upd_users
     before update
     on users
     for each row
-    execute procedure trigger_set_timestamp();
-
+execute procedure trigger_set_timestamp();

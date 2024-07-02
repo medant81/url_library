@@ -1,0 +1,64 @@
+services:
+
+  postgres:
+    image: "postgres:16"
+    networks:
+      new:
+        aliases:
+          - postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - "5434:5432"
+    healthcheck:
+      test: "pg_isready --username=admin && psql --username=admin --list"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  migrate:
+    image: migrate/migrate
+    networks:
+      - new
+    volumes:
+      - ./schema:/schema
+    command:
+      [
+        "migrate",
+        "-path",
+        "/schema",
+        "-database",
+        "postgres://postgres:postgres@postgres:5432/url_library?sslmode=disable",
+        "up",
+        "3",
+      ]
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: prod-service:local
+    container_name: url_library
+    depends_on:
+      - postgres
+    ports:
+      - 3000:3000
+    networks:
+      - new
+    restart: unless-stopped
+    command: ["./main"]
+
+networks:
+  new:
+
+volumes:
+  postgres_data:
